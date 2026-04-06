@@ -57,7 +57,7 @@ Add to your Cursor MCP settings (`.cursor/mcp.json`):
 ### Local Development
 
 ```bash
-git clone https://github.com/vibecodeplanner/mcp-server.git
+git clone https://github.com/EntroSolutions/mcp-server.git
 cd mcp-server
 npm install
 npm run build
