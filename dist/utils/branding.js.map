@@ -1,0 +1,1 @@
+{"version":3,"file":"branding.js","sourceRoot":"","sources":["../../src/utils/branding.ts"],"names":[],"mappings":";;AAEA,8BAOC;AAED,kCAEC;AAbD,MAAM,QAAQ,GAAG,8BAA8B,CAAC;AAEhD,SAAgB,SAAS,CAAC,OAAe;IACvC,OAAO,GAAG,OAAO;;;kCAGe,QAAQ;;gBAE1B,QAAQ,EAAE,CAAC;AAC3B,CAAC;AAED,SAAgB,WAAW,CAAC,OAAe;IACzC,OAAO,cAAc,OAAO,gCAAgC,QAAQ,EAAE,CAAC;AACzE,CAAC"}
