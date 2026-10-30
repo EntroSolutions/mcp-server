@@ -1,0 +1,44 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.EntroSolutions/vibe-coding-plan",
+  "title": "Vibe Coding Plan",
+  "description": "Turn a project idea into a task plan with estimates, tech stack advice, and saved projects.",
+  "version": "2.0.0",
+  "websiteUrl": "https://vibecoderplanner.com/integrations/mcp",
+  "repository": {
+    "url": "https://github.com/EntroSolutions/mcp-server",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "vibe-coding-plan-mcp",
+      "version": "2.0.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "VIBE_API_TOKEN",
+          "description": "API token from https://vibecoderplanner.com/api-tokens",
+          "isRequired": true,
+          "isSecret": true,
+          "format": "string"
+        },
+        {
+          "name": "VIBE_API_URL",
+          "description": "Optional API base URL override",
+          "isRequired": false,
+          "format": "string",
+          "default": "https://vibecoderplanner.com"
+        }
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://vibecoderplanner.com/mcp"
+    }
+  ]
+}

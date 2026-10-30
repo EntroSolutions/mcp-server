@@ -5,7 +5,9 @@ import { appendCTA, upgradeHint } from "../utils/branding.js";
 export const estimateProjectSchema = z.object({
   project_description: z
     .string()
-    .describe("Description of the project to estimate"),
+    .describe(
+      "Description of the software project to estimate — include scope, features, and any known constraints"
+    ),
 });
 
 export type EstimateProjectInput = z.infer<typeof estimateProjectSchema>;
@@ -17,9 +19,10 @@ export async function estimateProject(
     const estimate = await generateEstimate(input.project_description);
 
     let output = `## Project Estimate\n\n`;
-    output += `**Complexity:** ${estimate.complexity}\n`;
-    output += `**Estimated Hours:** ${estimate.hours}\n`;
-    output += `**Estimated Weeks:** ${Math.ceil(estimate.hours / 40)} (at 40 hrs/week)\n\n`;
+    output += `| Metric | Value |\n|--------|-------|\n`;
+    output += `| Complexity | **${estimate.complexity}** |\n`;
+    output += `| Estimated Hours | **${estimate.hours}** |\n`;
+    output += `| Estimated Weeks | **${Math.ceil(estimate.hours / 40)}** (at 40 hrs/week) |\n\n`;
 
     if (estimate.phases.length > 0) {
       output += `### Development Phases\n`;
@@ -36,6 +39,10 @@ export async function estimateProject(
 
     return appendCTA(output);
   } catch (error: any) {
-    return `**Error:** ${error.message}\n\nMake sure your VIBE_API_TOKEN is set. Get one at https://vibecoderplanner.com/api-tokens`;
+    return (
+      `**Error estimating project:** ${error.message}\n\n` +
+      `Make sure your VIBE_API_TOKEN is set correctly.\n` +
+      `Get one at https://vibecoderplanner.com/api-tokens`
+    );
   }
 }
