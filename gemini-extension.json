@@ -1,0 +1,19 @@
+{
+  "name": "vibe-coding-plan",
+  "version": "2.0.0",
+  "description": "Turn a project idea into a task plan with estimates, tech stack advice, and saved projects.",
+  "mcpServers": {
+    "vibe-coding-plan": {
+      "command": "npx",
+      "args": ["-y", "vibe-coding-plan-mcp"]
+    }
+  },
+  "settings": [
+    {
+      "name": "API token",
+      "description": "Your Vibe Coding Plan API token from https://vibecoderplanner.com/api-tokens",
+      "envVar": "VIBE_API_TOKEN",
+      "sensitive": true
+    }
+  ]
+}
